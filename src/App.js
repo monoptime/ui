@@ -3,19 +3,23 @@ import './App.css';
 import Navbar from './shared/Navbar';
 import Sidebar from './shared/Sidebar';
 import Home from './pages/home';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './pages/create';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        
         <Navbar/>
         <Sidebar />
-        <div className="content">
+        <div className="content" style={{padding: '50px'}}>
+        <Link to='/create'>
+          create
+        </Link>
           <Switch>
-            <Route path='/'>
-              <Home/>
-            </Route>
+            <Route path='/' component={Home}></Route>
+            <Route path='/create' component={Create}></Route>
           </Switch>
         </div>
         <header className="App-header">

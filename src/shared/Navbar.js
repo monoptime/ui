@@ -12,12 +12,11 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { AddCircle, AccountCircle } from '@material-ui/icons';
+import { Tooltip } from '@material-ui/core';
 
 function Navbar() {
     const classes = useStyles();
@@ -72,12 +71,10 @@ function Navbar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <MailIcon />
-                    </Badge>
+                <IconButton aria-label="Add service" color="inherit">
+                    <AddCircle />
                 </IconButton>
-                <p>Messages</p>
+                <p>Add service</p>
             </MenuItem>
             <MenuItem>
                 <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -104,16 +101,11 @@ function Navbar() {
         <div>
             <AppBar position="fixed" className={classes.bar} >
                 <Toolbar>
-                    <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                    
                     <Typography className={classes.title} variant="h6" noWrap>
-                        <img src={logo} className='logo' alt='logo' />
+                        <Link to="/">
+                            <img src={logo} className='logo' alt='logo' />
+                        </Link>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -130,11 +122,13 @@ function Navbar() {
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
+                        <Link to="/create">
+                            <Tooltip title="Add service">
+                                <IconButton aria-label="Add new service" color="inherit">
+                                    <AddCircle />
+                                </IconButton>
+                            </Tooltip>
+                        </Link>
                         <IconButton aria-label="show 17 new notifications" color="inherit">
                             <Badge badgeContent={17} color="secondary">
                                 <NotificationsIcon />

@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Dashboard from "@material-ui/icons/Dashboard";
-import Settings from "@material-ui/icons/Settings";
-
+import { Dashboard, Settings } from '@material-ui/icons';
+import IconButton from '@material-ui/core/IconButton';
 
 function Sidebar() {
     const classes = useStyles();
@@ -10,14 +9,14 @@ function Sidebar() {
         <div className={classes.Sidebar}>
             <ul className={classes.navList}>
                 <li>
-                    <a href="#">
+                    <IconButton>
                         <Dashboard style={{ color: '#0849b2'}} />
-                    </a>
+                    </IconButton>
                 </li>
                 <li>
-                    <a href="#">
+                    <IconButton>
                         <Settings style={{ color: '#0849b2'}} />
-                    </a>
+                    </IconButton>
                 </li>
             </ul>
         </div>
@@ -37,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
         "& li": {
             position: 'relative',
             display: 'flex',
-            alignItems: 'center',
             listStyle: 'none',
             color: '#0849b2', 
             margin: '10px 10px 10px -25px',
